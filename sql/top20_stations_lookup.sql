@@ -1,0 +1,6 @@
+SELECT TOP (20) [station_id]
+      ,[name]
+      ,[longitude]
+      ,[latitude]
+      ,[collected_at]
+  FROM [dbo].[Stations]

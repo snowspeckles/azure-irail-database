@@ -15,31 +15,29 @@ CREATE TABLE Stations (
 );
 
 CREATE TABLE TrainDepartures (
-    departure_id BIGINT IDENTITY(1,1) PRIMARY KEY,
-    
+    departure_external_id NVARCHAR(50) NOT NULL,
     scheduled_time DATETIME2 NOT NULL,
 
     delay_seconds INT NOT NULL DEFAULT 0,
-
     is_cancelled BIT NOT NULL DEFAULT 0,
     
     origin_id NVARCHAR(50) NOT NULL,
-    destination_id NVARCHAR(50) NOT NULL,
+    destination_id NVARCHAR(50) NULL, -- final destination (nullable initially)
 
     platform_planned NVARCHAR(10) NULL,
     platform_actual NVARCHAR(10) NULL,
 
-    vehicle_id NVARCHAR(50) NULL,
-
+    vehicle_id NVARCHAR(50) NOT NULL, -- required for enrichment
     collected_at DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 
+    CONSTRAINT PK_TrainDepartures
+        PRIMARY KEY (departure_external_id, scheduled_time, origin_id),
+
     CONSTRAINT FK_Departures_Origin
-        FOREIGN KEY (origin_id)
-        REFERENCES Stations(station_id),
+        FOREIGN KEY (origin_id) REFERENCES Stations(station_id),
 
     CONSTRAINT FK_Departures_Destination
-        FOREIGN KEY (destination_id)
-        REFERENCES Stations(station_id)
+        FOREIGN KEY (destination_id) REFERENCES Stations(station_id)
 );
 
 -- CREATE TABLE Disturbances (

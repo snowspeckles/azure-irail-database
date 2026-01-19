@@ -1,2 +1,4 @@
-# azure-irail-database
-Creating a Belgian train database by calling the iRail API and using Azure
+# Overview
+In this project, I created a Belgian train database on Azure Cloud by calling the iRail API (https://docs.irail.be/).
+
+(more to be added)

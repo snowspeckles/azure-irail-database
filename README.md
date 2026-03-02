@@ -65,20 +65,20 @@ The project is structured in three progressive levels:
 ## Project Structure
 
 ```
-├── azure-functions/          # Azure Function code
-│   ├── function_app.py      # Main function logic
-│   ├── requirements.txt     # Python dependencies
-│   └── host.json           # Function configuration
-├── terraform/               # Infrastructure as Code (Hardcore Level)
-│   ├── main.tf             # Azure resource definitions
-│   └── variables.tf        # Configuration variables
-├── scripts/                # Automation scripts
-│   ├── deploy.sh           # Deployment automation
-│   └── setup_db.sql        # Database initialization
-├── power-bi/               # Power BI dashboard files
+├── azure-functions/              # Azure Function code
+│   ├── function_app.py           # Main function logic
+│   ├── requirements.txt          # Python dependencies
+│   └── host.json                 # Function configuration
+├── terraform/                    # Infrastructure as Code (Hardcore Level)
+│   ├── main.tf                   # Azure resource definitions
+│   └── variables.tf              # Configuration variables
+├── scripts/                      # Automation scripts
+│   ├── deploy.sh                 # Deployment automation
+│   └── setup_db.sql              # Database initialization
+├── power-bi/                     # Power BI dashboard files
 │   ├── train_dashboard.pbix
 │   └── data_source_config
-└── docs/                   # Documentation
+└── docs/                         # Documentation
     ├── api-endpoints.md
     └── deployment-guide.md
 ```
